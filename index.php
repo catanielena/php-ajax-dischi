@@ -1,9 +1,10 @@
 <?php
-    include __DIR__ . "/database.php";
+include __DIR__ . "/database.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,8 +17,29 @@
         <link rel="stylesheet" href="css/style.css">
         <title>php-ajax-dischi</title>
     </head>
+
     <body>
-        <?php include __DIR__ .'/partials/template/header.php'; ?>   
-        <main></main>     
+        <?php include __DIR__ . '/partials/template/header.php'; ?>
+        <main>
+            <!-- collection -->
+            <section class="collection">
+                <?php foreach($database as $album) {?>
+                    <!-- album -->
+                    <div class="album">
+                        <div class="album__img">
+                            <img src="<?="{$album['poster']}"?>" alt="">
+                        </div>
+                        <h4 class="album__title"><?= "{$album['title']}";?></h4>
+                        <ul class="album__info">
+                            <li><?= "{$album['year']}";?></li>
+                            <li><?= "{$album['author']}";?></li>
+                        </ul>
+                    </div>  
+                    <!-- /album -->
+                <?php }; ?>
+            </section>
+            <!-- /collection -->
+        </main>
     </body>
+
 </html>

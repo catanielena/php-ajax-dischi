@@ -44,6 +44,11 @@ h4 {
 /* common */
 /* 
 */
+
+ul {
+    list-style: none;
+}
+
 a {
     display: inline-block;
 }
@@ -53,9 +58,6 @@ a {
 /* 
 */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -77,3 +79,80 @@ header {
 /* main */
 /* 
 */
+main { 
+    background-color: var(--mainColor100);
+    min-height: 100vh;
+    padding: var(--heightHeader) 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--gap) var(--gapX2);
+    flex-grow: 1;
+    max-width: 62.5rem;
+    height: 100%;
+}
+
+.album {
+    display: grid;
+    grid-template-rows: auto;
+    color: var(--grey);
+    background-color: var(--mainColor300);
+    padding: var(--gap);
+    text-align: center;
+}
+.album__img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.album__img  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.album__img::after {
+    content: "";
+    display: inline-block;
+    padding-bottom: 100%;
+}
+
+.album__title {
+    color: #fff;
+    text-transform: uppercase;
+    margin: var(--gap) 0;
+}
+
+.album__info p {
+    font-size: 1rem;
+    line-height: .4rem;
+    color: var(--grey);
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        align-items: flex-start;
+        padding: calc(var(--heightHeader) + var(--gap)) var(--gap);
+    }
+
+    .collection {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--gap-sm) var(--gap);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .collection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
