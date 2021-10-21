@@ -1,0 +1,51 @@
+/* reset */
+/* 
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+/* 
+*/
+/* root */
+/* 
+*/
+:root {
+    /* //colors */
+    --mainColor100: #1e2d3b;
+    --mainColor300: #2e3a46;
+    --grey: #808080;
+    /* //Header */
+    --padHeaderTB: .7rem;
+    --padHeaderRL: 1.2rem;
+    --heightLogo: 2.75rem;
+    --heightHeader: calc(var(--padHeaderTB) * 2 + var(--heightLogo));
+    /* //padding */
+    --gap-sm: .5rem;
+    --gap: .8rem;
+    --gapX2: calc(var(--gap) * 2);
+}
+/* 
+*/
+/* font */
+/* 
+*/
+body, button, a, input {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    display: inline-block;
+}
+/* 
+*/
+/* common */
+/* 
+*/
+/* header */
+/* 
+*/
+/* main */
+/* 
+*/
