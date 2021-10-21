@@ -35,15 +35,43 @@ body, button, a, input {
     font-family: 'Roboto', sans-serif;
 }
 
-a {
-    display: inline-block;
+h4 {
+    font-size: 1.0625rem;
+    line-height: 1.1rem;
 }
 /* 
 */
 /* common */
 /* 
 */
+a {
+    display: inline-block;
+}
+/* 
+*/
 /* header */
+/* 
+*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    padding: var(--padHeaderTB) var(--padHeaderRL);        
+    background-color: var(--mainColor300);
+    color: #fff;
+}
+
+.header__logo {
+    height: var(--heightLogo);
+}
+
+.header__logo img {
+    height: 100%;
+}
 /* 
 */
 /* main */
