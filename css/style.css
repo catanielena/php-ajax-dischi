@@ -52,12 +52,19 @@ ul {
 a {
     display: inline-block;
 }
+
+select:focus {
+    outline: none;
+}
 /* 
 */
 /* header */
 /* 
 */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -73,6 +80,18 @@ header {
 
 .header__logo img {
     height: 100%;
+}
+
+.header__filter select{
+    width: 10rem;
+    border-radius: .2rem;
+    background-color: var(--mainColor100);
+    border-color: rgb(34, 36, 51);
+    color: whitesmoke;
+}
+
+label {
+    color: var(--grey);
 }
 /* 
 */

@@ -22,6 +22,16 @@
             <div class="header__logo">
                 <img src="img/spotify-logo.png" alt="spotify_logo">
             </div>
+            <form class="header__filter">
+                <label for="genres">Filter by genre</label>
+                <select name="genres" v-model="genreSelected" @change="CollectionOnChange">
+                    <option value="">All</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Metal">Metal</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Pop">Pop</option>
+                </select>
+            </form>
         </header>
         <main>
             <!-- collection -->

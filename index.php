@@ -1,5 +1,13 @@
 <?php
     include __DIR__ . "/database.php";
+    if(!empty($_GET["genre"])) {
+        $db = array_filter($database, function ($album) {
+            return ($album['genre'] == $_GET["genre"]);
+        });
+    } else { 
+        $db = $database;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +31,7 @@
         <main>
             <!-- collection -->
             <section class="collection">
-                <?php foreach($database as $album): ?>
+                <?php foreach($db as $album): ?>
                     <!-- album -->
                     <div class="album">
                         <div class="album__img">
