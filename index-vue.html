@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Roboto_Google-font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Roboto_Google-font -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>php-ajax-dischi</title>
+</head>
+
+<body>
+    <div id="root">
+        <header>
+            <div class="header__logo">
+                <img src="img/spotify-logo.png" alt="spotify_logo">
+            </div>
+        </header>
+        <main>
+            <!-- collection -->
+            <section class="collection">
+                <!-- album -->
+                <div class="album" v-for="(album, i) in collection" :key="`album_${i}`">
+                    <div class="album__img">
+                    <img :src="`${album.poster}`" :alt="`${album.title}`">
+                </div>
+                <h4 class="album__title">
+                    {{album.title}}
+                </h4>
+                <ul class="album__info">
+                    <li>{{album.year}}</li>
+                    <li>{{album.author}}</li>
+                </ul>
+                </div>
+                <!-- /album -->
+            </section>
+            <!-- /collection -->
+        </main>
+    </div>
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- /Vue -->
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"
+        integrity="sha512-Idr7xVNnMWCsgBQscTSCivBNWWH30oo/tzYORviOCrLKmBaRxRflm2miNhTFJNVmXvCtzgms5nlJF4az2hiGnA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- /Axios -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

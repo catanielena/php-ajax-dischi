@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . "/database.php";
+    include __DIR__ . "/database.php";
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include __DIR__ . "/database.php";
         <main>
             <!-- collection -->
             <section class="collection">
-                <?php foreach($database as $album) {?>
+                <?php foreach($database as $album): ?>
                     <!-- album -->
                     <div class="album">
                         <div class="album__img">
@@ -36,7 +36,7 @@ include __DIR__ . "/database.php";
                         </ul>
                     </div>  
                     <!-- /album -->
-                <?php }; ?>
+                <?php endforeach; ?>
             </section>
             <!-- /collection -->
         </main>
