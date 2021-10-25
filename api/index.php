@@ -1,15 +1,26 @@
 <?php
     require __DIR__ . '/../database.php';
-    header('Content-Type: application/json');
-    if(!empty($_GET["genre"])) {
-        $genreSelected = $_GET["genre"];
-        $dbFiltered = [];
-        foreach($database as $album) {
-            if($genreSelected == $album["genre"]) {
-                $dbFiltered[] = $album;
+    if(!empty($_GET["action"])){
+        if($_GET["action"] == "albums") {
+            $response = $database;
+        } else if ($_GET["action"] == "getGenres") {
+            $genres = [];
+            foreach($database as $album) {
+                if(!in_array($album['genre'], $genres)) {
+                    $genres[] = $album['genre'];
+                }
             }
-        };
-        echo json_encode($dbFiltered);
-    } else {
-        echo json_encode($database);
-    }
+            $response = $genres;
+        } else if ($_GET["action"] == "filterGenre") {
+            $genreSelected = $_GET["genre"];
+            $dbFiltered = [];
+            foreach($database as $album) {
+                if($genreSelected == $album["genre"] || $genreSelected == "") {
+                    $dbFiltered[] = $album;
+                }
+            };
+            $response = $dbFiltered;
+        }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}

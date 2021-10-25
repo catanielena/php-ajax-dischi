@@ -1,13 +1,22 @@
 <?php
     include __DIR__ . "/database.php";
+    $db = $database;
     if(!empty($_GET["genre"])) {
-        $db = array_filter($database, function ($album) {
-            return ($album['genre'] == $_GET["genre"]);
-        });
-    } else { 
-        $db = $database;
+        if($_GET["genre"] == "all") {
+            $db = $database;
+        } else {
+            $db = array_filter($database, function ($album) {
+                return ($album['genre'] == $_GET["genre"]);
+            });
+        }
     }
 
+    $genres = [];
+    foreach($database as $album) {
+        if(!in_array($album['genre'], $genres)) {
+            $genres[] = $album['genre'];
+        }
+    }
 ?>
 
 <!DOCTYPE html>

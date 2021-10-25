@@ -2,11 +2,26 @@ const app = new Vue ({
     el: '#root',
     data: {
         collection: [],
-        genreSelected: ""
+        genreSelected: "",
+        genres: []
     },
     created() {
         axios
-            .get('http://localhost/21-10-21%20php-ajax-dischi/php-ajax-dischi/api/index.php')
+            .get('http://localhost/21-10-21%20php-ajax-dischi/php-ajax-dischi/api/index.php', {
+                params: {
+                    action: "getGenres"
+                }
+            })
+            .then((res) => {
+                this.genres = res.data;
+            })
+
+            axios
+            .get('http://localhost/21-10-21%20php-ajax-dischi/php-ajax-dischi/api/index.php', {
+                params: {
+                    action: "albums"
+                }
+            })
             .then((res) => {
                 this.collection = res.data;
             })
@@ -16,6 +31,7 @@ const app = new Vue ({
             axios
             .get('http://localhost/21-10-21%20php-ajax-dischi/php-ajax-dischi/api/index.php', {
                 params: {
+                    action: "filterGenre",
                     "genre": this.genreSelected
                 }
             })
